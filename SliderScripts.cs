@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.UI;
 
 public class SliderScripts : MonoBehaviour
@@ -10,16 +7,6 @@ public class SliderScripts : MonoBehaviour
 
     public void ChangeHealth(float health)
     {
-        StartCoroutine(ChangeHealthDelay(health));
-    }
-
-    private IEnumerator ChangeHealthDelay(float health)
-    {
-        var waitForSecond = new WaitForSeconds(1f);
-
-        yield return waitForSecond;
-
-        Debug.Log("Slided");
-        _slider.DOValue(health, 0.5f);
+        _slider.value = Mathf.MoveTowards(_slider.value, health, 1f);
     }
 }
