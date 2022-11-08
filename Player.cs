@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private SliderScripts _sliderScripts;
+    [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Slider _slider;
 
     private float _health;
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
         while (_slider.value != health)
         {
-            _sliderScripts.ChangeHealth(_health);
+            _healthBar.ChangeHealth(_health);
 
             yield return waitForSecond;
         }
