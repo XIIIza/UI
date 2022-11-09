@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private HealthBar _sliderScripts;
+    [SerializeField] private HealthBar _healthBar;
 
     private float _health;
     private float _damage = 10f;
@@ -59,11 +59,11 @@ public class Player : MonoBehaviour
     {
         var waitForSecond = new WaitForSeconds(0.05f);
 
-        bool result = false;
+        bool isCorrectValue = false;
 
-        while (!result)
+        while (!isCorrectValue)
         {
-            result = _sliderScripts.ChangeHealth(_health);
+            isCorrectValue = _healthBar.ChangeHealth(_health);
 
             yield return waitForSecond;
         }
