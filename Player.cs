@@ -1,11 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private HealthBar _healthBar;
-    [SerializeField] private Slider _slider;
+    [SerializeField] private HealthBar _sliderScripts;
 
     private float _health;
     private float _damage = 10f;
@@ -61,9 +59,11 @@ public class Player : MonoBehaviour
     {
         var waitForSecond = new WaitForSeconds(0.05f);
 
-        while (_slider.value != health)
+        bool result = false;
+
+        while (!result)
         {
-            _healthBar.ChangeHealth(_health);
+            result = _sliderScripts.ChangeHealth(_health);
 
             yield return waitForSecond;
         }
